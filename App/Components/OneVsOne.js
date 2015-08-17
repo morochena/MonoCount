@@ -27,7 +27,6 @@ var styles = StyleSheet.create({
         flex: 1,
         alignItems: 'stretch',
         justifyContent: 'space-between',
-        marginTop: 65,
         backgroundColor: '#0C090A'
     }
 });

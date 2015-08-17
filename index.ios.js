@@ -27,8 +27,9 @@ var MonoCount = React.createClass({
             initialRoute={{
                 component: Menu,
                 title: 'Monocount Menu',
-                navigationBarHidden: true
-            }} />
+            }}
+            navigationBarHidden ={true}
+                         />
                  );
     }
 });
