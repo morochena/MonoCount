@@ -69,17 +69,20 @@ var styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        backgroundColor: '#0C090A',
     },
     welcome: {
         fontSize: 30,
         textAlign: 'center',
         margin: 10,
+        color: '#E5E4E2',
+        fontFamily: 'Avenir Next'
     },
     instructions: {
         textAlign: 'center',
-        color: '#333333',
+        color: '#666',
         marginBottom: 10,
+        fontFamily: 'Avenir Next'
     },
     colorContainer: {
         alignItems: 'flex-start',
@@ -91,10 +94,11 @@ var styles = StyleSheet.create({
         margin: 5
     },
     button: {
+        marginTop: 20,
         backgroundColor: 'white',
         padding: 15,
         borderBottomWidth: 1,
-        borderBottomColor: '#CDCDCD'
+        borderBottomColor: '#CDCDCD',
     },
     buttonText: {
         fontSize: 17,
