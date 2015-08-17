@@ -10,71 +10,32 @@ var {
     StyleSheet,
     Text,
     View,
-    Image
+    Image,
+    Navigator,
+    TouchableHighlight,
+    NavigatorIOS,
 } = React;
+
+var Menu = require('./App/Components/Menu');
+var OneVsOne = require('./App/Components/OneVsOne');
 
 var MonoCount = React.createClass({
     render: function() {
         return (
-                <View style={styles.container}>
-                <Text style={styles.welcome}>
-                MonoCount
-            </Text>
-                <View style={styles.colorContainer}>
-                <Image
-            source={require('image!blue')}
-            style={styles.welcomeColors}
-                />
-                <Image
-            source={require('image!red')}
-            style={styles.welcomeColors}
-                />
-                <Image
-            source={require('image!black')}
-            style={styles.welcomeColors}
-                />
-                <Image
-            source={require('image!white')}
-            style={styles.welcomeColors}
-                />
-                <Image
-            source={require('image!green')}
-            style={styles.welcomeColors}
-                />
-                </View>
-                <Text style={styles.instructions}>
-                Created by Marcus Orochena
-            </Text>
-                </View>
-        );
+                <NavigatorIOS
+            style={styles.container}
+            initialRoute={{
+                component: Menu,
+                title: 'Monocount Menu',
+                navigationBarHidden: true
+            }} />
+                 );
     }
 });
 
 var styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 30,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 10,
-    },
-    colorContainer: {
-        alignItems: 'flex-start',
-        flexDirection: 'row'
-    },
-    welcomeColors: {
-        width: 60,
-        height: 60,
-        margin: 5
     },
 });
 
