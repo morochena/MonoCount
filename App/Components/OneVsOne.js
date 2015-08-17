@@ -6,11 +6,14 @@ var {
     StyleSheet
 } = React;
 
+var Player = require('./Player');
+
 var OneVsOne = React.createClass({
     render: function() {
         return(
                 <View style={styles.container}>
-                <Text>hi dad</Text>
+                <Player isReversed={true} />
+                <Player  />
                 </View>
         );
     }
