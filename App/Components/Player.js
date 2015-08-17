@@ -4,33 +4,53 @@ var {
     View,
     Text,
     StyleSheet,
-    TouchableHighlight
+    TouchableHighlight,
+    Animated
 } = React;
 
 var Player = React.createClass({
 
     increment: function() {
         this.setState({
-            health:  this.state.health + 1
+            health:  this.state.health + 1,
         });
+
+        this.state.bounceValue.setValue(1.5);
+
+        Animated.spring(
+            this.state.bounceValue,
+            {
+                toValue: 1.0,
+                friction: 1
+            }).start();
     },
 
     decrement: function() {
         this.setState({
             health: this.state.health -1
         });
+
+        this.state.bounceValue.setValue(0.5);
+
+        Animated.spring(
+            this.state.bounceValue,
+            {
+                toValue: 1.0,
+                friction: 1
+            }).start();
     },
 
     getInitialState: function() {
         return {
-            health: 20
+            health: 20,
+            bounceValue: new Animated.Value(1), 
         };
     },
 
     render: function() {
         return(
                 <View style={styles.container, this.props.isReversed && styles.reversed }>
-                <Text style={styles.health}>{this.state.health}</Text>
+                <Animated.Text style={[styles.health, {transform: [{scale: this.state.bounceValue}]}]}>{this.state.health}</Animated.Text>
                     <View style={styles.counterContainer}>
                       <Text style={styles.counter}>0</Text>
                       <Text style={styles.counter}>0</Text>
@@ -60,7 +80,7 @@ var styles = StyleSheet.create({
         transform: [{rotate: '180deg'}]  
     },
     health: {
-        fontSize: 90, 
+        fontSize: 70, 
         textAlign: 'center',
         color: '#E5E4E2',
         fontFamily: 'Avenir Next',
