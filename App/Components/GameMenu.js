@@ -4,7 +4,8 @@ var {
     View,
     Text,
     StyleSheet,
-    AlertIOS
+    AlertIOS,
+    TouchableHighlight
 } = React;
 
 var Options = require('./Options');
@@ -29,17 +30,20 @@ var GameMenu = React.createClass({
     render: function() {
         return(
                 <View style={styles.container}>
-                <View style={styles.smcont}>
+
+                <TouchableHighlight style={styles.button}>
                 <Text style={styles.gg}> Reset </Text>
-                </View>
-                <View style={styles.smcont}>
+                </TouchableHighlight>
+
+                <TouchableHighlight style={styles.button} onPress={this.goBack}>
                 <Text onPress={this.goBack} style={styles.gg}> Menu </Text>
-                </View>
-                <View style={styles.smcont}>
+                </TouchableHighlight>
+
+                <TouchableHighlight style={styles.button} onPress={this.options}>
                 <Text
-            onPress={this.goOptions}
             style={styles.gg}> Options </Text>
-                </View>
+                </TouchableHighlight>
+
                 </View>
         );
     }
@@ -58,6 +62,10 @@ var styles = StyleSheet.create({
     gg: {
         textAlign: 'center',
         color: '#fff'
+    },
+    button: {
+        flex: 1,
+        padding: 5
     }
 });
 
