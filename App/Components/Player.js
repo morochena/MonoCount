@@ -5,10 +5,29 @@ var {
     Text,
     StyleSheet,
     TouchableHighlight,
-    Animated
+    Animated,
+    AsyncStorage
 } = React;
 
+var HEALTH_KEY = '@MonoCountStorage:health';
+
 var Player = React.createClass({
+
+    componentDidMount() {
+        this.loadData();
+    },
+
+    loadData() {
+    AsyncStorage.getItem(HEALTH_KEY)
+        .then((value) => {
+            if (value !== null) {
+                this.setState({health: parseInt(value)});
+            } else {
+                this.setState({health: 20});
+            }
+        }).done();
+    },
+
 
     increment: function() {
         this.setState({
@@ -47,10 +66,18 @@ var Player = React.createClass({
         };
     },
 
+    componentWillReceiveNewProps(newprops) {
+        console.log(newprops);
+        this.setState({
+            health: newprops.health
+        });
+    },
+
     render: function() {
         return(
                 <View style={styles.container, this.props.isReversed && styles.reversed }>
                 <Animated.Text style={[styles.health, {transform: [{scale: this.state.bounceValue}]}]}>{this.state.health}</Animated.Text>
+                <Text style={styles.name}>{this.props.name}</Text>
                     <View style={styles.counterContainer}>
                       <Text style={styles.counter}>0</Text>
                       <Text style={styles.counter}>0</Text>
@@ -84,6 +111,12 @@ var styles = StyleSheet.create({
         textAlign: 'center',
         color: '#E5E4E2',
         fontFamily: 'Avenir Next',
+    },
+    name: {
+        fontSize: 17,
+        textAlign: 'center',
+        color: '#E5E4E2',
+        fontFamily: 'Avenir Next'
     },
     counterContainer: {
         flexDirection: 'row',
