@@ -53,12 +53,36 @@ var Menu = React.createClass({
                 <Text style={styles.instructions}>
                 Created by Marcus Orochena
             </Text>
+                
+                <TouchableHighlight
+            style={styles.button}
+            onPress={this.handleSubmit.bind(this)}
+            underlayerColor="white">
+                <Text style={styles.buttonText}> Solo Game </Text>
+                </TouchableHighlight>
+
                 <TouchableHighlight
             style={styles.button}
             onPress={this.handleSubmit.bind(this)}
             underlayerColor="white">
                 <Text style={styles.buttonText}> One vs One </Text>
-            </TouchableHighlight>
+                </TouchableHighlight>
+
+                <TouchableHighlight
+            style={styles.button}
+            onPress={this.handleSubmit.bind(this)}
+            underlayerColor="white">
+                <Text style={styles.buttonText}> Free For All </Text>
+                </TouchableHighlight>
+
+                <TouchableHighlight
+            style={styles.button}
+            onPress={this.handleSubmit.bind(this)}
+            underlayerColor="white">
+                <Text style={styles.buttonText}> Two vs Two </Text>
+                </TouchableHighlight>
+
+                
                 </View>
 );
     }
@@ -95,14 +119,13 @@ var styles = StyleSheet.create({
     },
     button: {
         marginTop: 20,
-        backgroundColor: 'white',
+        backgroundColor: '#0C090A',
         padding: 15,
-        borderBottomWidth: 1,
-        borderBottomColor: '#CDCDCD',
     },
     buttonText: {
         fontSize: 17,
-        fontWeight: '500'
+        fontWeight: '500',
+        color: '#E5E4E2'
     }
 });
 
