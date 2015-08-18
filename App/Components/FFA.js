@@ -84,11 +84,11 @@ var FFA = React.createClass({
                 <GameMenu styles={styles.gameMenu} navigator={this.props.navigator} />
                 <Player
             name={this.state.player1Name}
-            rotated={true} />
+            FFA={true} />
                 <Player name={this.state.player2Name}
-            rotated={true} />
+            FFA={true} />
                 <Player name={this.state.player3Name}
-            rotated={true} />
+            FFA={true} />
                 </View>
         );
     }
@@ -97,7 +97,7 @@ var FFA = React.createClass({
 var styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#0C090A'
+        backgroundColor: '#0C090A',
     },
 });
 

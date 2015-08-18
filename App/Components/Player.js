@@ -71,8 +71,9 @@ var Player = React.createClass({
         return(
           <View style={
             [
+                this.props.FFA && styles.containerFFA,
               styles.container,
-              this.props.isReversed && styles.reversed
+                this.props.isReversed && styles.reversed,
             ]}>
 
             <Animated.Text style={[styles.health, {transform: [{scale: this.state.bounceValue}]}]}>{this.state.health}</Animated.Text>
@@ -95,8 +96,11 @@ var Player = React.createClass({
           container: {
               flex: 1,
               flexDirection: 'column',
-              transform: [{scale: 0.8}]
-        },
+              justifyContent: 'flex-end'
+          },
+          containerFFA: {
+              transform: [{scale: 0.72}]
+          },
         healthContainer: {
           flexDirection: 'column'
         },
