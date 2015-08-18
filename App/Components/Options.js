@@ -28,11 +28,37 @@ var Options = React.createClass({
     },
 
     saveData() {
-        AsyncStorage.setItem(HEALTH_KEY, this.state.health.toString());
-        AsyncStorage.setItem(PLAYER1NAME_KEY, this.state.player1Name);
-        AsyncStorage.setItem(PLAYER2NAME_KEY, this.state.player2Name);
-        AsyncStorage.setItem(PLAYER3NAME_KEY, this.state.player3Name);
-        AsyncStorage.setItem(PLAYER4NAME_KEY, this.state.player4Name);
+        if (this.state.health !== null) {
+            AsyncStorage.setItem(HEALTH_KEY, this.state.health.toString());
+        } else {
+            AsyncStorage.setItem(HEALTH_KEY, "20");
+        }
+
+        if (this.state.player1Name !== null) {
+            AsyncStorage.setItem(PLAYER1NAME_KEY, this.state.player1Name);
+        } else {
+            AsyncStorage.setItem(PLAYER1NAME_KEY, "");
+        }
+
+        if (this.state.player2Name !== null) {
+            AsyncStorage.setItem(PLAYER2NAME_KEY, this.state.player2Name);
+        } else {
+            AsyncStorage.setItem(PLAYER2NAME_KEY, "");
+        }
+
+        if (this.state.player3Name !== null) {
+            AsyncStorage.setItem(PLAYER3NAME_KEY, this.state.player3Name);
+        } else {
+            AsyncStorage.setItem(PLAYER3NAME_KEY, "");
+        }
+
+        if (this.state.player4Name !== null) {
+            AsyncStorage.setItem(PLAYER4NAME_KEY, this.state.player4Name);
+        } else {
+            AsyncStorage.setItem(PLAYER4NAME_KEY, "");
+        }
+
+
         this.props.navigator.pop();
     },
 
@@ -117,7 +143,7 @@ var Options = React.createClass({
             maximumValue = {100}
             value={this.state.health}/>
 
-                <View>
+                <View style={styles.buttonContainer}>
                 <TouchableHighlight
             style={styles.button}
             onPress={this.saveData}
@@ -161,9 +187,21 @@ var styles = StyleSheet.create({
         height: 10,
         margin: 10
     },
+    buttonContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center'
+    },
+    button: {
+        flex: 1,
+        marginTop: 20,
+        backgroundColor: '#0C090A',
+        padding: 15,
+    },
     buttonText: {
+        fontSize: 17,
         color: 'white',
-        fontFamily: 'Avenir Next'
+        fontFamily: 'Avenir Next',
+        textAlign: 'center'
     }
 });
 
