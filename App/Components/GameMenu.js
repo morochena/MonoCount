@@ -7,6 +7,8 @@ var {
     AlertIOS
 } = React;
 
+var Options = require('./Options');
+
 var GameMenu = React.createClass({
 
     goBack: function() {
@@ -20,6 +22,10 @@ var GameMenu = React.createClass({
         );
     },
 
+    goOptions() {
+        this.props.navigator.push({component: Options});
+    },
+
     render: function() {
         return(
                 <View style={styles.container}>
@@ -30,7 +36,9 @@ var GameMenu = React.createClass({
                 <Text onPress={this.goBack} style={styles.gg}> Menu </Text>
                 </View>
                 <View style={styles.smcont}>
-                <Text style={styles.gg}> Options </Text>
+                <Text
+            onPress={this.goOptions}
+            style={styles.gg}> Options </Text>
                 </View>
                 </View>
         );

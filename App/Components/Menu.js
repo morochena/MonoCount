@@ -53,7 +53,6 @@ var Menu = React.createClass({
                 <Text style={styles.instructions}>
                 Created by Marcus Orochena
             </Text>
-                
                 <TouchableHighlight
             style={styles.button}
             onPress={this.handleSubmit.bind(this)}
@@ -82,7 +81,6 @@ var Menu = React.createClass({
                 <Text style={styles.buttonText}> Two vs Two </Text>
                 </TouchableHighlight>
 
-                
                 </View>
 );
     }
@@ -125,7 +123,8 @@ var styles = StyleSheet.create({
     buttonText: {
         fontSize: 17,
         fontWeight: '500',
-        color: '#E5E4E2'
+        color: '#E5E4E2',
+        fontFamily: 'Avenir Next'
     }
 });
 

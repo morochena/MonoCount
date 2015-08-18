@@ -8,7 +8,7 @@ var {
 
 var Player = require('./Player');
 var GameMenu = require('./GameMenu');
-
+var Options = require('./Options');
 
 var OneVsOne = React.createClass({
     render: function() {
