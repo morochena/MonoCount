@@ -3,10 +3,23 @@ var React = require('react-native');
 var {
     View,
     Text,
-    StyleSheet
+    StyleSheet,
+    AlertIOS
 } = React;
 
 var GameMenu = React.createClass({
+
+    goBack: function() {
+        AlertIOS.alert(
+            'Back to Main Menu',
+            'Your current game will be lost.',
+            [
+                {text: 'Yes', onPress: () => this.props.navigator.pop()},
+                {text: 'Cancel', onPress: () => console.log('cancelled')},
+            ]
+        );
+    },
+
     render: function() {
         return(
                 <View style={styles.container}>
@@ -14,7 +27,7 @@ var GameMenu = React.createClass({
                 <Text style={styles.gg}> Reset </Text>
                 </View>
                 <View style={styles.smcont}>
-                <Text style={styles.gg}> Menu </Text>
+                <Text onPress={this.goBack} style={styles.gg}> Menu </Text>
                 </View>
                 <View style={styles.smcont}>
                 <Text style={styles.gg}> Options </Text>

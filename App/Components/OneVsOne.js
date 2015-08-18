@@ -15,7 +15,7 @@ var OneVsOne = React.createClass({
         return(
                 <View style={styles.container}>
                 <Player isReversed={true} />
-                <GameMenu />
+                <GameMenu navigator={this.props.navigator} />
                 <Player  />
                 </View>
         );
