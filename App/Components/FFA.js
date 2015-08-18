@@ -18,7 +18,7 @@ var PLAYER3NAME_KEY = '@MonoCountStorage:player3Name';
 var PLAYER4NAME_KEY = '@MonoCountStorage:player4Name';
 
 
-var OneVsOne = React.createClass({
+var FFA = React.createClass({
 
     getInitialState() {
         return {
@@ -81,11 +81,14 @@ var OneVsOne = React.createClass({
     render: function() {
         return(
                 <View style={styles.container}>
+                <GameMenu styles={styles.gameMenu} navigator={this.props.navigator} />
                 <Player
-            name={this.state.player2Name}
-                isReversed={true} />
-                <GameMenu navigator={this.props.navigator} />
-                <Player name={this.state.player1Name} />
+            name={this.state.player1Name}
+            rotated={true} />
+                <Player name={this.state.player2Name}
+            rotated={true} />
+                <Player name={this.state.player3Name}
+            rotated={true} />
                 </View>
         );
     }
@@ -94,10 +97,8 @@ var OneVsOne = React.createClass({
 var styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'stretch',
-        justifyContent: 'space-between',
         backgroundColor: '#0C090A'
-    }
+    },
 });
 
-module.exports = OneVsOne;
+module.exports = FFA;

@@ -1,12 +1,12 @@
 var React = require('react-native');
 
 var {
-    View,
-    Text,
-    StyleSheet,
-    TouchableHighlight,
-    Animated,
-    AsyncStorage
+  View,
+  Text,
+  StyleSheet,
+  TouchableHighlight,
+  Animated,
+  AsyncStorage
 } = React;
 
 var HEALTH_KEY = '@MonoCountStorage:health';
@@ -18,20 +18,21 @@ var Player = React.createClass({
     },
 
     loadData() {
-    AsyncStorage.getItem(HEALTH_KEY)
-        .then((value) => {
-            if (value !== null) {
-                this.setState({health: parseInt(value)});
-            } else {
-                this.setState({health: 20});
+        AsyncStorage.getItem(HEALTH_KEY)
+            .then((value) => {
+                if (value !== null) {
+                    this.setState({health: parseInt(value)});
+                } else {
+                    this.setState({health: 20});
+                }
             }
-        }).done();
+        ).done();
     },
 
 
-    increment: function() {
+    increment() {
         this.setState({
-            health:  this.state.health + 1,
+            health: this.state.health + 1
         });
 
         this.state.bounceValue.setValue(1.5);
@@ -42,108 +43,102 @@ var Player = React.createClass({
                 toValue: 1.0,
                 friction: 1
             }).start();
-    },
+        },
 
-    decrement: function() {
-        this.setState({
-            health: this.state.health -1
-        });
+    decrement() {
+      this.setState({
+        health: this.state.health -1
+      });
 
-        this.state.bounceValue.setValue(0.5);
+      this.state.bounceValue.setValue(0.5);
 
-        Animated.spring(
-            this.state.bounceValue,
-            {
-                toValue: 1.0,
-                friction: 1
-            }).start();
-    },
+      Animated.spring(
+        this.state.bounceValue,
+        {
+          toValue: 1.0,
+          friction: 1
+        }).start();
+      },
 
-    getInitialState: function() {
+      getInitialState() {
         return {
-            health: 20,
-            bounceValue: new Animated.Value(1), 
+          health: 20,
+          bounceValue: new Animated.Value(1),
         };
-    },
+      },
 
-    componentWillReceiveNewProps(newprops) {
-        console.log(newprops);
-        this.setState({
-            health: newprops.health
-        });
-    },
-
-    render: function() {
+      render: function() {
         return(
-                <View style={styles.container, this.props.isReversed && styles.reversed }>
-                <Animated.Text style={[styles.health, {transform: [{scale: this.state.bounceValue}]}]}>{this.state.health}</Animated.Text>
-                <Text style={styles.name}>{this.props.name}</Text>
-                    <View style={styles.counterContainer}>
-                      <Text style={styles.counter}>0</Text>
-                      <Text style={styles.counter}>0</Text>
-                      <Text style={styles.counter}>0</Text>
-                </View>
-                <View style={styles.modifyButtonContainer}>
-                <TouchableHighlight onPress={this.decrement} style={styles.button}>
-                <Text style={styles.modify}> - </Text>
-                </TouchableHighlight>
-                <TouchableHighlight onPress={this.increment} style={styles.button}>
-                <Text style={styles.modify}> + </Text>
-                </TouchableHighlight>
-                </View>
-                </View>
-        );
-    }
+          <View style={
+            [
+              styles.container,
+              this.props.isReversed && styles.reversed
+            ]}>
+
+            <Animated.Text style={[styles.health, {transform: [{scale: this.state.bounceValue}]}]}>{this.state.health}</Animated.Text>
+            <Text style={styles.name}>{this.props.name}</Text>
+
+            <View style={styles.modifyButtonContainer}>
+            <TouchableHighlight onPress={this.decrement} style={styles.button}>
+            <Text style={styles.modify}> - </Text>
+            </TouchableHighlight>
+            <TouchableHighlight onPress={this.increment} style={styles.button}>
+            <Text style={styles.modify}> + </Text>
+            </TouchableHighlight>
+            </View>
+            </View>
+          );
+        }
 });
 
-var styles = StyleSheet.create({
-    container: {
-        backgroundColor: '#F5FCFF',
-        flex: 1,
-        marginTop: 65,
-        justifyContent: 'flex-start',
-    },
-    reversed: {
-        transform: [{rotate: '180deg'}]  
-    },
-    health: {
-        fontSize: 70, 
-        textAlign: 'center',
-        color: '#E5E4E2',
-        fontFamily: 'Avenir Next',
-    },
-    name: {
-        fontSize: 17,
-        textAlign: 'center',
-        color: '#E5E4E2',
-        fontFamily: 'Avenir Next'
-    },
-    counterContainer: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-    },
-    counter: {
-        fontSize: 30,
-        margin: 30,
-        color: '#D1D0CE'
-    },
-    modifyButtonContainer: {
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'stretch'
-    },
-    button: {
-        flex: 1,
-        backgroundColor: '#0C090A',
-        width: 100,
-        borderBottomWidth: 1,
-        borderBottomColor: '#CDCDCD'
-    },
-    modify: {
-        fontSize: 70,
-        textAlign: 'center',
-        color: '#E5E4E2'
-    }
-});
+      var styles = StyleSheet.create({
+          container: {
+              flex: 1,
+              flexDirection: 'column',
+              transform: [{scale: 0.8}]
+        },
+        healthContainer: {
+          flexDirection: 'column'
+        },
+        reversed: {
+          transform: [{rotate: '180deg'}]
+        },
+        health: {
+          fontSize: 90,
+          textAlign: 'center',
+          color: '#E5E4E2',
+          fontFamily: 'Avenir Next',
+        },
+        name: {
+          fontSize: 17,
+          textAlign: 'center',
+          color: '#E5E4E2',
+          fontFamily: 'Avenir Next'
+        },
+          counterContainer: {
+          flexDirection: 'column',
+          justifyContent: 'space-around',
+          alignItems: 'center'
+        },
+        counter: {
+          fontSize: 30,
+          color: '#D1D0CE',
+          marginLeft: 15,
+          marginRight: 15
+        },
+        modifyButtonContainer: {
+          flexDirection: 'row',
+          alignItems: 'stretch',
+          justifyContent: 'space-around'
+        },
+        button: {
+          backgroundColor: '#0C090A',
+        },
+        modify: {
+          fontSize: 90,
+          textAlign: 'center',
+          color: '#E5E4E2'
+        }
+      });
 
-module.exports = Player;
+      module.exports = Player;

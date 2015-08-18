@@ -47,9 +47,10 @@ var GameMenu = React.createClass({
 
 var styles = StyleSheet.create({
     container: {
-        flex: 1,
+        marginTop: 10,
         flexDirection: 'row',
         alignItems: 'center',
+        justifyContent: 'flex-start'
     },
     smcont: {
         flex: 1,

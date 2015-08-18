@@ -11,18 +11,35 @@ var {
 } = React;
 
 var OneVsOne = require('./OneVsOne');
+var Solo = require('./Solo');
+var FFA = require('./FFA');
 
 
 var Menu = React.createClass({
 
-    handleSubmit: function() {
+    goSolo() {
+         this.props.navigator.push({
+            title: 'Solo',
+            component: Solo 
+        });
+    },
+
+    go1v1() {
         this.props.navigator.push({
             title: 'One vs One',
             component: OneVsOne
         });
     },
 
-    render: function() {
+    goFFA() {
+        this.props.navigator.push({
+            title: 'One vs One',
+            component: FFA 
+        });
+    },
+
+
+    render() {
         return (
                <View style={styles.container}>
                 <Text style={styles.welcome}>
@@ -55,30 +72,23 @@ var Menu = React.createClass({
             </Text>
                 <TouchableHighlight
             style={styles.button}
-            onPress={this.handleSubmit.bind(this)}
-            underlayerColor="white">
-                <Text style={styles.buttonText}> Solo Game </Text>
+            onPress={this.goSolo}
+                ref='solo'>
+                <Text style={styles.buttonText}> Solo </Text>
                 </TouchableHighlight>
 
                 <TouchableHighlight
             style={styles.button}
-            onPress={this.handleSubmit.bind(this)}
-            underlayerColor="white">
+            onPress={this.go1v1}
+                ref='1v1'>
                 <Text style={styles.buttonText}> One vs One </Text>
                 </TouchableHighlight>
 
                 <TouchableHighlight
             style={styles.button}
-            onPress={this.handleSubmit.bind(this)}
-            underlayerColor="white">
+            onPress={this.goFFA}
+                ref='ffa'>
                 <Text style={styles.buttonText}> Free For All </Text>
-                </TouchableHighlight>
-
-                <TouchableHighlight
-            style={styles.button}
-            onPress={this.handleSubmit.bind(this)}
-            underlayerColor="white">
-                <Text style={styles.buttonText}> Two vs Two </Text>
                 </TouchableHighlight>
 
                 </View>
