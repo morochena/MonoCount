@@ -43,7 +43,7 @@ var Counter = React.createClass({
                     <TouchableHighlight style={styles.button}>
                         <Text style={styles.buttonText} onPress={this.increment}>+</Text>
                     </TouchableHighlight>
-                    
+
                 </View>
             </View>
         );
@@ -66,14 +66,15 @@ var Counters = React.createClass({
     },
 
     addCounter() {
-        if (this.state.counterLabels.length < 4) {
+
+
             var counter = {key: this.generateUIDNotMoreThan1million(), name: 'Token', num: 1};
             var newLabels = this.state.counterLabels.slice();
             newLabels.push(counter);
             this.setState({
                 counterLabels: newLabels
             });
-        }
+        
     },
 
     render() {
