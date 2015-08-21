@@ -64,12 +64,8 @@ var Menu = React.createClass({
                 <Text style={styles.buttonText}> One vs One </Text>
                 </TouchableHighlight>
 
-                <TouchableHighlight
-                    style={styles.button}
-                    onPress={this.goFFA}
-                    ref='ffa'>
-                <Text style={styles.buttonText}> Free For All </Text>
-                </TouchableHighlight>
+            
+
 
             </View>
 );

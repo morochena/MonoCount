@@ -4,14 +4,16 @@ var {
     View,
     Text,
     TouchableHighlight,
-    StyleSheet
+    StyleSheet,
+    Animated
 } = React;
 
 var Counter = React.createClass({
 
     getInitialState() {
         return {
-            num: 1
+            num: 1,
+            bounceValue: new Animated.Value(1)
         };
     },
 
@@ -19,19 +21,37 @@ var Counter = React.createClass({
         this.setState({
             num: this.state.num + 1
         });
+
+        this.state.bounceValue.setValue(1.5);
+
+        Animated.spring(
+            this.state.bounceValue,
+            {
+                toValue: 1.0,
+                friction: 1
+            }).start();
     },
 
     decrement() {
         this.setState({
             num: this.state.num - 1
         });
+
+        this.state.bounceValue.setValue(0.5);
+
+        Animated.spring(
+            this.state.bounceValue,
+            {
+                toValue: 1.0,
+                friction: 1
+            }).start();
     },
 
     render() {
         if (this.state.num > 0) {
             return(
             <View style={styles.counterContainer}>
-                <Text style={styles.counterNum}>{this.state.num}</Text>
+                <Animated.Text style={[styles.counterNum, {transform: [{scale: this.state.bounceValue}]}]}>{this.state.num}</Animated.Text>
                 <Text style={styles.counterLabel}>{this.props.label}</Text>
 
                 <View style={styles.counterButtonContainer}>

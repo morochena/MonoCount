@@ -16,6 +16,10 @@ var PLAYER1NAME_KEY = '@MonoCountStorage:player1Name';
 
 var Solo = React.createClass({
 
+	resetHealth() {
+        this.refs.player1.resetHealth();
+    },
+
 	getInitialState() {
 		return {
 			health: 20,
@@ -58,8 +62,8 @@ var Solo = React.createClass({
 		StatusBarIOS.setHidden(true);
 		return(
 			<View style={styles.container}>
-			<GameMenu navigator={this.props.navigator} />
-			<Player name={this.state.player1Name} />
+			<GameMenu navigator={this.props.navigator} resetHealth={this.resetHealth} />
+			<Player name={this.state.player1Name} ref={'player1'}/>
 			</View>
 		);
 	}
@@ -69,7 +73,12 @@ var styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: '#0C090A',
-		justifyContent: 'space-around'
+		justifyContent: 'space-between',
+		paddingBottom: 20,
+		paddingTop: 20
+	},
+	buffer: {
+		margin: 15
 	}
 });
 
