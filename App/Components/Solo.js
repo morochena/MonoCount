@@ -22,6 +22,7 @@ var Solo = React.createClass({
 			player1Name: ''
 		};
 	},
+
 	componentDidMount() {
 		this.loadData();
 	},

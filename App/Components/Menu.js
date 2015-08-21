@@ -12,11 +12,10 @@ var OneVsOne = require('./OneVsOne');
 var Solo = require('./Solo');
 var FFA = require('./FFA');
 
-
 var Menu = React.createClass({
 
     goSolo() {
-         this.props.navigator.push({
+        this.props.navigator.push({
             title: 'Solo',
             component: Solo
         });
@@ -39,57 +38,40 @@ var Menu = React.createClass({
 
     render() {
         return (
-               <View style={styles.container}>
-                <Text style={styles.welcome}>
-                MonoCount
-            </Text>
+            <View style={styles.container}>
+                <Text style={styles.welcome}> MonoCount </Text>
+
                 <View style={styles.colorContainer}>
-                <Image
-            source={require('image!blue')}
-            style={styles.welcomeColors}
-                />
-                <Image
-            source={require('image!red')}
-            style={styles.welcomeColors}
-                />
-                <Image
-            source={require('image!black')}
-            style={styles.welcomeColors}
-                />
-                <Image
-            source={require('image!white')}
-            style={styles.welcomeColors}
-                />
-                <Image
-            source={require('image!green')}
-            style={styles.welcomeColors}
-                />
+                    <Image source={require('image!blue')} style={styles.welcomeColors} />
+                    <Image source={require('image!red')} style={styles.welcomeColors} />
+                    <Image source={require('image!black')} style={styles.welcomeColors} />
+                    <Image source={require('image!white')} style={styles.welcomeColors} />
+                    <Image source={require('image!green')} style={styles.welcomeColors} />
                 </View>
-                <Text style={styles.instructions}>
-                Created by Marcus Orochena
-            </Text>
+
+                <Text style={styles.instructions}> Created by Marcus Orochena </Text>
                 <TouchableHighlight
-            style={styles.button}
-            onPress={this.goSolo}
-                ref='solo'>
-                <Text style={styles.buttonText}> Solo </Text>
+                    style={styles.button}
+                    onPress={this.goSolo}
+                    ref='solo'>
+                    <Text style={styles.buttonText}> Solo </Text>
                 </TouchableHighlight>
 
                 <TouchableHighlight
-            style={styles.button}
-            onPress={this.go1v1}
-                ref='1v1'>
+                    style={styles.button}
+                    onPress={this.go1v1}
+                    ref='1v1'>
                 <Text style={styles.buttonText}> One vs One </Text>
                 </TouchableHighlight>
 
                 <TouchableHighlight
-            style={styles.button}
-            onPress={this.goFFA}
-                ref='ffa'>
+                    style={styles.button}
+                    onPress={this.goFFA}
+                    ref='ffa'>
                 <Text style={styles.buttonText}> Free For All </Text>
                 </TouchableHighlight>
 
-                </View>
+            </View>
 );
     }
 });

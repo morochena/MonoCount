@@ -65,32 +65,24 @@ var OneVsOne = React.createClass({
             })
             .done(() => {
                 if (this.isMounted()) {
-                this.setState({
-                    health: lHealth,
-                    player1Name: lP1,
-                    player2Name: lP2,
-                    player3Name: lP3,
-                    player4Name: lP4
-                });
+                    this.setState({
+                        health: lHealth,
+                        player1Name: lP1,
+                        player2Name: lP2,
+                        player3Name: lP3,
+                        player4Name: lP4
+                    });
                 }
             });
     },
 
     render: function() {
         return(
-                <View style={styles.container}>
-
-
-
-                <Player
-            name={this.state.player2Name}
-            isReversed={true} />
-
-
+            <View style={styles.container}>
+                <Player name={this.state.player2Name} isReversed={true} />
                 <GameMenu navigator={this.props.navigator} />
-
                 <Player name={this.state.player1Name} />
-                </View>
+            </View>
         );
     }
 });

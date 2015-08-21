@@ -65,13 +65,13 @@ var FFA = React.createClass({
             })
             .done(() => {
                 if (this.isMounted()) {
-                this.setState({
-                    health: lHealth,
-                    player1Name: lP1,
-                    player2Name: lP2,
-                    player3Name: lP3,
-                    player4Name: lP4
-                });
+                    this.setState({
+                        health: lHealth,
+                        player1Name: lP1,
+                        player2Name: lP2,
+                        player3Name: lP3,
+                        player4Name: lP4
+                    });
                 }
             });
     },
@@ -79,14 +79,19 @@ var FFA = React.createClass({
     render: function() {
         return(
                 <View style={styles.container}>
-                <GameMenu styles={styles.gameMenu} navigator={this.props.navigator} />
-                <Player
-            name={this.state.player1Name}
-            FFA={true} />
-                <Player name={this.state.player2Name}
-            FFA={true} />
-                <Player name={this.state.player3Name}
-            FFA={true} />
+                    <GameMenu styles={styles.gameMenu} navigator={this.props.navigator} />
+                    <Player
+                        name={this.state.player1Name}
+                        FFA={true}
+                    />
+                    <Player
+                        name={this.state.player2Name}
+                        FFA={true}
+                    />
+                    <Player
+                        name={this.state.player3Name}
+                        FFA={true}
+                    />
                 </View>
         );
     }

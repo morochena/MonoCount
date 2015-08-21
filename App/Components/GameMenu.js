@@ -31,18 +31,17 @@ var GameMenu = React.createClass({
         return(
                 <View style={styles.container}>
 
-                <TouchableHighlight style={styles.button}>
-                <Text style={styles.gg}> Reset </Text>
-                </TouchableHighlight>
+                    <TouchableHighlight style={styles.button}>
+                        <Text style={styles.gg}> Reset </Text>
+                    </TouchableHighlight>
 
-                <TouchableHighlight style={styles.button} onPress={this.goBack}>
-                <Text onPress={this.goBack} style={styles.gg}> Menu </Text>
-                </TouchableHighlight>
+                    <TouchableHighlight style={styles.button} onPress={this.goBack}>
+                        <Text onPress={this.goBack} style={styles.gg}> Menu </Text>
+                    </TouchableHighlight>
 
-                <TouchableHighlight style={styles.button} onPress={this.options}>
-                <Text
-            style={styles.gg}> Options </Text>
-                </TouchableHighlight>
+                    <TouchableHighlight style={styles.button} onPress={this.options}>
+                        <Text onPress={this.goOptions} style={styles.gg}> Options </Text>
+                    </TouchableHighlight>
 
                 </View>
         );

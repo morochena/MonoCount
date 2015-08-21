@@ -29,19 +29,23 @@ var Counter = React.createClass({
 
     render() {
         if (this.state.num > 0) {
-        return(
+            return(
             <View style={styles.counterContainer}>
                 <Text style={styles.counterNum}>{this.state.num}</Text>
                 <Text style={styles.counterLabel}>{this.props.label}</Text>
-            <View style={styles.counterButtonContainer}>
-            <TouchableHighlight style={styles.button}>
-                <Text style={styles.buttonText} onPress={this.decrement}>-</Text>
-            </TouchableHighlight>
-            <TouchableHighlight style={styles.button}>
-                <Text style={styles.buttonText} onPress={this.increment}>+</Text>
-            </TouchableHighlight>
-            </View>
+
+                <View style={styles.counterButtonContainer}>
+
+                    <TouchableHighlight style={styles.button}>
+                        <Text style={styles.buttonText} onPress={this.decrement}>-</Text>
+                    </TouchableHighlight>
+
+                    <TouchableHighlight style={styles.button}>
+                        <Text style={styles.buttonText} onPress={this.increment}>+</Text>
+                    </TouchableHighlight>
+                    
                 </View>
+            </View>
         );
         }
         return null;
