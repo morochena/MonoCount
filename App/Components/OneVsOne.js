@@ -19,8 +19,8 @@ var PLAYER4NAME_KEY = '@MonoCountStorage:player4Name';
 var OneVsOne = React.createClass({
 
     resetHealth() {
-        console.log(this.refs.player1.resetHealth());
-        console.log(this.refs.player2.resetHealth());
+        this.refs.player1.resetHealth();
+        this.refs.player2.resetHealth();
     },
 
     getInitialState() {

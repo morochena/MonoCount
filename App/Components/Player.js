@@ -16,6 +16,7 @@ var HEALTH_KEY = '@MonoCountStorage:health';
 var Player = React.createClass({
 
     resetHealth() {
+        this.refs.counters.resetCounters();
         this.setState({
             health: 20
         });
@@ -36,7 +37,6 @@ var Player = React.createClass({
             }
         ).done();
     },
-
 
     increment() {
         this.setState({
@@ -78,7 +78,7 @@ var Player = React.createClass({
     render: function() {
         return(
             <View style={this.props.isReversed && styles.reversed}>
-                <Counters />
+                <Counters ref={'counters'} />
 
                 <View style={
                     [
