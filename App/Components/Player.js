@@ -15,6 +15,12 @@ var HEALTH_KEY = '@MonoCountStorage:health';
 
 var Player = React.createClass({
 
+    resetHealth() {
+        this.setState({
+            health: 20
+        });
+    },
+
     componentDidMount() {
         this.loadData();
     },

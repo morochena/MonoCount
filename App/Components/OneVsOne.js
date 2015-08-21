@@ -18,6 +18,11 @@ var PLAYER4NAME_KEY = '@MonoCountStorage:player4Name';
 
 var OneVsOne = React.createClass({
 
+    resetHealth() {
+        console.log(this.refs.player1.resetHealth());
+        console.log(this.refs.player2.resetHealth());
+    },
+
     getInitialState() {
         return {
             health: 20,
@@ -79,9 +84,9 @@ var OneVsOne = React.createClass({
     render: function() {
         return(
             <View style={styles.container}>
-                <Player name={this.state.player2Name} isReversed={true} />
-                <GameMenu navigator={this.props.navigator} />
-                <Player name={this.state.player1Name} />
+                <Player name={this.state.player2Name} isReversed={true} ref={'player1'} />
+                <GameMenu navigator={this.props.navigator} resetHealth={this.resetHealth} />
+                <Player name={this.state.player1Name} ref={'player2'} />
             </View>
         );
     }

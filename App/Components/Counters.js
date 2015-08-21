@@ -67,14 +67,13 @@ var Counters = React.createClass({
 
     addCounter() {
 
+        var counter = {key: this.generateUIDNotMoreThan1million(), name: 'Token', num: 1};
+        var newLabels = this.state.counterLabels.slice();
+        newLabels.push(counter);
+        this.setState({
+            counterLabels: newLabels
+        });
 
-            var counter = {key: this.generateUIDNotMoreThan1million(), name: 'Token', num: 1};
-            var newLabels = this.state.counterLabels.slice();
-            newLabels.push(counter);
-            this.setState({
-                counterLabels: newLabels
-            });
-        
     },
 
     render() {

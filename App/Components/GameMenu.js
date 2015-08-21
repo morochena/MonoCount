@@ -32,7 +32,7 @@ var GameMenu = React.createClass({
                 <View style={styles.container}>
 
                     <TouchableHighlight style={styles.button}>
-                        <Text style={styles.gg}> Reset </Text>
+                        <Text onPress={this.props.resetHealth} style={styles.gg}> Reset </Text>
                     </TouchableHighlight>
 
                     <TouchableHighlight style={styles.button} onPress={this.goBack}>
