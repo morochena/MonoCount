@@ -175,13 +175,13 @@ var styles = StyleSheet.create({
         borderColor: 'gray',
         borderWidth: 1,
         color: 'white',
-        fontFamily: 'Avenir Next',
+        fontFamily: 'Avenir Next'
     },
 
     label: {
         color: 'white',
         fontSize: 17,
-        fontFamily: 'Avenir Next',
+        fontFamily: 'Avenir Next'
     },
     slider: {
         height: 10,
@@ -195,7 +195,7 @@ var styles = StyleSheet.create({
         flex: 1,
         marginTop: 20,
         backgroundColor: '#0C090A',
-        padding: 15,
+        padding: 15
     },
     buttonText: {
         fontSize: 17,

@@ -2,14 +2,12 @@ var React = require('react-native');
 
 var {
     View,
-    Text,
     StyleSheet,
     AsyncStorage
 } = React;
 
 var Player = require('./Player');
 var GameMenu = require('./GameMenu');
-var Options = require('./Options');
 
 var HEALTH_KEY = '@MonoCountStorage:health';
 var PLAYER1NAME_KEY = '@MonoCountStorage:player1Name';
@@ -81,10 +79,16 @@ var OneVsOne = React.createClass({
     render: function() {
         return(
                 <View style={styles.container}>
+
+
+
                 <Player
             name={this.state.player2Name}
-                isReversed={true} />
+            isReversed={true} />
+
+
                 <GameMenu navigator={this.props.navigator} />
+
                 <Player name={this.state.player1Name} />
                 </View>
         );
@@ -95,7 +99,7 @@ var styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'stretch',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         backgroundColor: '#0C090A'
     }
 });

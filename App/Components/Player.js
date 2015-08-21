@@ -9,6 +9,8 @@ var {
   AsyncStorage
 } = React;
 
+var Counters = require('./Counters');
+
 var HEALTH_KEY = '@MonoCountStorage:health';
 
 var Player = React.createClass({
@@ -63,35 +65,40 @@ var Player = React.createClass({
       getInitialState() {
         return {
           health: 20,
-          bounceValue: new Animated.Value(1),
+          bounceValue: new Animated.Value(1)
         };
       },
 
       render: function() {
-        return(
+          return(
+                  <View style={this.props.isReversed && styles.reversed}>
+                  <Counters />
+
           <View style={
             [
                 this.props.FFA && styles.containerFFA,
-              styles.container,
-                this.props.isReversed && styles.reversed,
+                styles.container
             ]}>
 
+                <TouchableHighlight onPress={this.decrement} style={styles.button}>
+                <Text style={styles.modify}> - </Text>
+                </TouchableHighlight>
+
+                <View style={styles.healthContainer}>
                 <Animated.Text style={
                     [styles.health,
                      {transform: [{scale: this.state.bounceValue}]},
-                     this.props.FFA && styles.healthFFA,
+                     this.props.FFA && styles.healthFFA
                     ]}>{this.state.health}</Animated.Text>
-            <Text style={styles.name}>{this.props.name}</Text>
+                <Text style={styles.name}>{this.props.name}</Text>
+                </View>
 
-            <View style={styles.modifyButtonContainer}>
-            <TouchableHighlight onPress={this.decrement} style={styles.button}>
-            <Text style={styles.modify}> - </Text>
-            </TouchableHighlight>
-            <TouchableHighlight onPress={this.increment} style={styles.button}>
-            <Text style={styles.modify}> + </Text>
-            </TouchableHighlight>
-            </View>
-            </View>
+                <TouchableHighlight onPress={this.increment} style={styles.button}>
+                <Text style={styles.modify}> + </Text>
+                </TouchableHighlight>
+
+                  </View>
+</View>
           );
         }
 });
@@ -99,14 +106,15 @@ var Player = React.createClass({
       var styles = StyleSheet.create({
           container: {
               flex: 1,
-              flexDirection: 'column',
-              justifyContent: 'flex-end'
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center'
           },
           containerFFA: {
               transform: [{scale: 0.75}]
           },
-        healthContainer: {
-          flexDirection: 'column'
+          healthContainer: {
+              flex: 2
         },
         reversed: {
           transform: [{rotate: '180deg'}]
@@ -116,6 +124,7 @@ var Player = React.createClass({
           textAlign: 'center',
           color: '#E5E4E2',
           fontFamily: 'Avenir Next',
+            backgroundColor: 'transparent'
         },
           healthFFA: {
               fontSize: 70
@@ -126,27 +135,17 @@ var Player = React.createClass({
           color: '#E5E4E2',
           fontFamily: 'Avenir Next'
         },
-          counterContainer: {
-          flexDirection: 'column',
-          justifyContent: 'space-around',
-          alignItems: 'center'
-        },
-        counter: {
-          fontSize: 30,
-          color: '#D1D0CE',
-          marginLeft: 15,
-          marginRight: 15
-        },
         modifyButtonContainer: {
           flexDirection: 'row',
           alignItems: 'stretch',
           justifyContent: 'space-around'
         },
-        button: {
-          backgroundColor: '#0C090A',
+          button: {
+              flex: 1,
+              backgroundColor: '#0C090A'
         },
         modify: {
-          fontSize: 90,
+          fontSize: 40,
           textAlign: 'center',
           color: '#E5E4E2'
         }

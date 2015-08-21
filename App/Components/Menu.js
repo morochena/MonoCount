@@ -5,8 +5,6 @@ var {
     Text,
     View,
     Image,
-    Navigator,
-    NavigatorIOS,
     TouchableHighlight
 } = React;
 
@@ -20,7 +18,7 @@ var Menu = React.createClass({
     goSolo() {
          this.props.navigator.push({
             title: 'Solo',
-            component: Solo 
+            component: Solo
         });
     },
 
@@ -34,7 +32,7 @@ var Menu = React.createClass({
     goFFA() {
         this.props.navigator.push({
             title: 'One vs One',
-            component: FFA 
+            component: FFA
         });
     },
 
@@ -101,7 +99,7 @@ var styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#0C090A',
+        backgroundColor: '#0C090A'
     },
     welcome: {
         fontSize: 30,
@@ -128,7 +126,7 @@ var styles = StyleSheet.create({
     button: {
         marginTop: 20,
         backgroundColor: '#0C090A',
-        padding: 15,
+        padding: 15
     },
     buttonText: {
         fontSize: 17,

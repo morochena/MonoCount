@@ -18,7 +18,7 @@ var GameMenu = React.createClass({
             'Your current game will be lost.',
             [
                 {text: 'Yes', onPress: () => this.props.navigator.pop()},
-                {text: 'Cancel', onPress: () => console.log('cancelled')},
+                {text: 'Cancel', onPress: () => console.log('cancelled')}
             ]
         );
     },
@@ -51,13 +51,12 @@ var GameMenu = React.createClass({
 
 var styles = StyleSheet.create({
     container: {
-        marginTop: 10,
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'flex-start'
+        justifyContent: 'center'
     },
     smcont: {
-        flex: 1,
+        flex: 1
     },
     gg: {
         textAlign: 'center',

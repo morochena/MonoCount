@@ -2,14 +2,12 @@ var React = require('react-native');
 
 var {
     View,
-    Text,
     StyleSheet,
     AsyncStorage
 } = React;
 
 var Player = require('./Player');
 var GameMenu = require('./GameMenu');
-var Options = require('./Options');
 
 var HEALTH_KEY = '@MonoCountStorage:health';
 var PLAYER1NAME_KEY = '@MonoCountStorage:player1Name';
@@ -97,8 +95,8 @@ var FFA = React.createClass({
 var styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#0C090A',
-    },
+        backgroundColor: '#0C090A'
+    }
 });
 
 module.exports = FFA;
