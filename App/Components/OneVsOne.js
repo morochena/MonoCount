@@ -1,19 +1,19 @@
-var React = require('react-native');
+const React = require('react-native');
 
-var {
+const {
     View,
     StyleSheet,
     AsyncStorage
 } = React;
 
-var Player = require('./Player');
-var GameMenu = require('./GameMenu');
+const Player = require('./Player');
+const GameMenu = require('./GameMenu');
 
-var HEALTH_KEY = '@MonoCountStorage:health';
-var PLAYER1NAME_KEY = '@MonoCountStorage:player1Name';
-var PLAYER2NAME_KEY = '@MonoCountStorage:player2Name';
-var PLAYER3NAME_KEY = '@MonoCountStorage:player3Name';
-var PLAYER4NAME_KEY = '@MonoCountStorage:player4Name';
+const HEALTH_KEY = '@MonoCountStorage:health';
+const PLAYER1NAME_KEY = '@MonoCountStorage:player1Name';
+const PLAYER2NAME_KEY = '@MonoCountStorage:player2Name';
+const PLAYER3NAME_KEY = '@MonoCountStorage:player3Name';
+const PLAYER4NAME_KEY = '@MonoCountStorage:player4Name';
 
 
 var OneVsOne = React.createClass({
