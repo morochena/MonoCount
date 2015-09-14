@@ -17,9 +17,15 @@ var Player = React.createClass({
 
     resetHealth() {
         this.refs.counters.resetCounters();
-        this.setState({
-            health: 20
-        });
+        AsyncStorage.getItem(HEALTH_KEY)
+            .then((value) => {
+                if (value !== null) {
+                    this.setState({health: parseInt(value)});
+                } else {
+                    this.setState({health: 20});
+                }
+            }
+        ).done();
     },
 
     componentDidMount() {
